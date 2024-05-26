@@ -1,9 +1,16 @@
+import { ModalPortal } from "react-native-modals";
+import { PlayerContext } from "./PlayerContext";
 import AppNavigation from "./navigation";
 import React from "react";
- 
- export default function App() {
-   return (
-    <AppNavigation />
-   );
- }
- 
+
+const App = () => {
+  return (
+    <PlayerContext>
+     
+      <AppNavigation />
+      <ModalPortal />
+    </PlayerContext>
+  );
+}
+
+export default App;

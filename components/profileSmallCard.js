@@ -1,13 +1,15 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const ProfileSmallCard = () => {
 
+    const navigation= useNavigation();
     const data = [
         {
             id: 1,
-            name: "Karan",
-            subheading: "Composer",
+            name: "Liked",
+            subheading: "songs",
             img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fvectors%2Fheart-love-red-valentine-romantic-157895%2F&psig=AOvVaw3UGeAZuAS11iYzhzVP25E3&ust=1706513338941000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCMCJ5pnI_4MDFQAAAAAdAAAAABAI"
         },
         {
@@ -28,10 +30,15 @@ const ProfileSmallCard = () => {
             subheading: "Drummer"
         },
         {
-            id:5,
-            name: "Sophie",
-            subheading: "Bassist"
-        }
+            id: 5,
+            name: "David",
+            subheading: "Drummer"
+        },
+        {
+            id: 6,
+            name: "David",
+            subheading: "Drummer"
+        },
         // Add more entries as needed
     ];
 
@@ -45,7 +52,7 @@ const ProfileSmallCard = () => {
 
 
             {data.map((items) => (
-                <View className='flex flex-row bg-gray-800 rounded-lg m-2' key={items.id}>
+                <Pressable onPress={()=>navigation.navigate("Liked")} className='flex flex-row bg-gray-800 rounded-lg m-2' key={items.id}>
 
 
                     <Image
@@ -59,9 +66,9 @@ const ProfileSmallCard = () => {
                         <Text className='text-white font-semibold '>{items.subheading}</Text>
 
                     </View>
-                </View>
+                </Pressable>
 
-            ))}
+            ))} 
    </>
 
           
